@@ -20,3 +20,12 @@ def load():
 
 def tags():
     return [t for t, _ in Counter(t for p in load() for t in p["tags"]).most_common()]
+
+
+def pick(topic, length, language, k=2, max_chars=1200):
+    matches = [p for p in load() if topic in p["tags"]]
+    matches.sort(
+        key=lambda p: (p["language"] == language, p["length"] == length, p.get("engagement") or 0),
+        reverse=True,
+    )
+    return [p["text"][:max_chars] for p in matches[:k]]
