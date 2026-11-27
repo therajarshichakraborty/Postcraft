@@ -1,6 +1,6 @@
 MODELS = {
-    "Llama 3.3 70B": "llama-3.3-70b-versatile",
-    "Llama 3.1 8B · fast": "llama-3.1-8b-instant",
+    "GPT-OSS 120B": "openai/gpt-oss-120b",
+    "GPT-OSS 20B · fast": "openai/gpt-oss-20b",
 }
 
 LENGTHS = {"Short": "3-5 lines", "Medium": "6-10 lines", "Long": "11-15 lines"}
