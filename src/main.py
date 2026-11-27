@@ -34,7 +34,12 @@ with left:
     language = st.segmented_control("Language", list(LANGUAGES), default="English")
     tone = st.selectbox("Tone", TONES)
     context = st.text_area("Key points", placeholder="Optional: a story, a stat, a takeaway…", height=110)
-    model, temperature, hashtags, emojis = next(iter(MODELS)), 0.7, True, False
+    with st.expander("Advanced"):
+        model = st.selectbox("Model", list(MODELS))
+        temperature = st.slider("Creativity", 0.0, 1.0, 0.7, 0.05)
+        a, b = st.columns(2)
+        hashtags = a.toggle("Hashtags", True)
+        emojis = b.toggle("Emojis", False)
     if st.button("Generate post", type="primary", width="stretch", disabled=not (key and topic)):
         ss.pending = {
             "model": MODELS[model],
