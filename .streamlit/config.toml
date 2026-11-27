@@ -7,6 +7,7 @@ textColor = "#18181b"
 borderColor = "#e4e4e7"
 baseRadius = "0.6rem"
 showWidgetBorder = true
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
 
 [client]
 toolbarMode = "minimal"
