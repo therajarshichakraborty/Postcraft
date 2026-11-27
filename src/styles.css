@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+html, body, .stApp, button, input, textarea { font-family: 'Inter', system-ui, sans-serif; }
+#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] { display: none; }
+header[data-testid="stHeader"] { background: transparent; height: 0; }
+.block-container { max-width: 1120px; padding-top: 3rem; }
+.brand { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 2.5rem; }
+.brand b { font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; }
+.brand span { color: #71717a; font-size: .85rem; }
+.label { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: #71717a; margin: 0 0 .5rem; }
+.stButton button, .stDownloadButton button { font-weight: 500; }
