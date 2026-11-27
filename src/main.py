@@ -86,5 +86,10 @@ with right:
         a, b = st.columns(2)
         a.button("Regenerate", width="stretch", on_click=lambda: ss.update(pending=ss.last))
         b.download_button("Download .txt", post, file_name="linkedin-post.txt", width="stretch")
+        if len(ss.history) > 1:
+            label("History")
+            for h in ss.history[1:6]:
+                with st.expander(f"{h['topic']} · {h['tone']} · {h['length']}"):
+                    st.code(h["text"], language=None, wrap_lines=True)
     else:
         st.markdown("<div class='empty'>Your draft will appear here.</div>", unsafe_allow_html=True)
