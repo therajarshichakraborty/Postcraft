@@ -8,3 +8,8 @@ header[data-testid="stHeader"] { background: transparent; height: 0; }
 .brand span { color: #71717a; font-size: .85rem; }
 .label { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: #71717a; margin: 0 0 .5rem; }
 .stButton button, .stDownloadButton button { font-weight: 500; }
+[data-testid="stCode"] pre { background: #fff !important; border: 1px solid #e4e4e7; border-radius: 12px; padding: 1.5rem !important; }
+[data-testid="stCode"] code { font-family: 'Inter', sans-serif !important; font-size: .95rem !important; line-height: 1.7 !important; white-space: pre-wrap !important; color: #18181b; }
+.stats { display: flex; gap: 1.25rem; color: #71717a; font-size: .8rem; margin: .5rem 0 1rem; }
+.stats .warn { color: #dc2626; }
+.empty { border: 1px dashed #d4d4d8; border-radius: 12px; padding: 5rem 2rem; text-align: center; color: #a1a1aa; font-size: .9rem; }
