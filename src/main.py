@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 import streamlit as st
@@ -63,7 +64,7 @@ with right:
         try:
             with st.container(border=True):
                 text = st.write_stream(stream_post(key, job["model"], job["temperature"], **job["params"]))
-            ss.history.insert(0, {"text": text.strip(), **job["params"]})
+            ss.history.insert(0, {"text": re.sub(r"\n{3,}", "\n\n", text).strip(), **job["params"]})
             ss.last = job
             st.rerun()
         except Exception as e:
