@@ -4,7 +4,7 @@ from pathlib import Path
 import streamlit as st
 
 import examples
-from config import LANGUAGES, LENGTHS, MODELS, TONES
+from config import LANGUAGES, LENGTHS, MAX_CHARS, MODELS, TONES
 from generator import stream_post
 from llm import api_key
 
@@ -18,6 +18,16 @@ ss.setdefault("pending", None)
 
 def label(text):
     st.markdown(f"<p class='label'>{text}</p>", unsafe_allow_html=True)
+
+
+def stats(text):
+    chars, words = len(text), len(text.split())
+    warn = " class='warn'" if chars > MAX_CHARS else ""
+    st.markdown(
+        f"<div class='stats'><span{warn}>{chars:,} / {MAX_CHARS:,} chars</span>"
+        f"<span>{words} words</span><span>~{max(1, round(words / 200))} min read</span></div>",
+        unsafe_allow_html=True,
+    )
 
 
 st.markdown("<div class='brand'><b>✦ Postcraft</b><span>LinkedIn posts that sound like you</span></div>", unsafe_allow_html=True)
@@ -70,6 +80,8 @@ with right:
         except Exception as e:
             st.error(f"Generation failed: {e}")
     elif ss.history:
-        st.code(ss.history[0]["text"], language=None, wrap_lines=True)
+        post = ss.history[0]["text"]
+        st.code(post, language=None, wrap_lines=True)
+        stats(post)
     else:
         st.markdown("<div class='empty'>Your draft will appear here.</div>", unsafe_allow_html=True)
