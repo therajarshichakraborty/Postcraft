@@ -21,4 +21,11 @@ def api_key():
 
 @lru_cache(maxsize=8)
 def get_llm(key, model, temperature=0.7):
-    return ChatGroq(api_key=key, model=model, temperature=temperature, max_tokens=700)
+    return ChatGroq(
+        api_key=key,
+        model=model,
+        temperature=temperature,
+        max_tokens=1200,
+        reasoning_effort="low",
+        reasoning_format="hidden",
+    )
